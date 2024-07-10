@@ -19,7 +19,7 @@ export default function Player({ initialName, symbol }) {
 
   // Function to update state when name is typed which is an event
   function handleChange(event) {
-    console.log(event);
+    // console.log(event); // Console log all the entries into the fields
     setPlayerName(event.target.value);
   }
 
