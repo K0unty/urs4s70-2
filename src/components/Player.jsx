@@ -3,28 +3,40 @@
 
 import { useState } from "react";
 
-export default function Player({ name, symbol }) {
+export default function Player({ initialName, symbol }) {
   // will manage a True or false boolean value, so intital state - isEditing is set to false
   // Which will then update to True
   const [isEditing, setIsEditing] = useState(false);
 
+  // Defining another state for managine name
+  const [playerName, setPlayerName] = useState(initialName);
+
   // Adding the editing functionality to the component
   function handleEditClick() {
+    // Best Practice , updating a state based on previous state value
     setIsEditing((editing) => !editing);
   }
 
-  let playerName = <span className="player-name">{name}</span>;
+  // Function to update state when name is typed which is an event
+  function handleChange(event) {
+    console.log(event);
+    setPlayerName(event.target.value);
+  }
+
+  let edittablePlayerName = <span className="player-name">{playerName}</span>;
   //   let btnCaption = "Edit";
 
   if (isEditing) {
-    playerName = <input type="text" required value={name} />;
+    edittablePlayerName = (
+      <input type="text" required value={playerName} onChange={handleChange} />
+    );
     // btnCaption = "Save";
   }
 
   return (
     <li>
       <span className="player">
-        {playerName}
+        {edittablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>
       <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
