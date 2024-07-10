@@ -1,5 +1,5 @@
 function App() {
-  return <h1>React TicAss-TacPussy-ToeFart</h1>;
+  return <p>Coming Soon..</p>;
 }
 
 export default App;

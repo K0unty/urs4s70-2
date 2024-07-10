@@ -37,7 +37,9 @@ header img {
   width: 8rem;
   object-fit: contain;
   margin: 3rem auto 1rem auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  filter: invert(80%);
+  border-radius: 200px;
+  animation: rotate 10s linear infinite;
 }
 
 h1 {
