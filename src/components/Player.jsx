@@ -8,14 +8,17 @@ export default function Player({ name, symbol }) {
   // Which will then update to True
   const [isEditing, setIsEditing] = useState(false);
 
-  function handleEditClick(params) {
-    setIsEditing(true);
+  // Adding the editing functionality to the component
+  function handleEditClick() {
+    setIsEditing((editing) => !editing);
   }
 
   let playerName = <span className="player-name">{name}</span>;
+  //   let btnCaption = "Edit";
 
   if (isEditing) {
-    playerName = <input type="text" required name="" id="" />;
+    playerName = <input type="text" required value={name} />;
+    // btnCaption = "Save";
   }
 
   return (
@@ -24,7 +27,7 @@ export default function Player({ name, symbol }) {
         {playerName}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleEditClick}>EDIT</button>
+      <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
     </li>
   );
 }
