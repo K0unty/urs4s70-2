@@ -8,23 +8,9 @@ X | O | --
 -- | X | --
 This array will get populated by entries from the player , also related to winning-combinations.js
 */
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
 
 // Complicated componed from Section 80
-export default function Gameboard({ onSelectSquare, turns }) {
-  let gameBoard = initialGameBoard;
-
-  for (const turn of turns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
-
+export default function Gameboard({ onSelectSquare, board }) {
   // // Gameboard state - Being commted to we lift the state
   // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
@@ -42,7 +28,7 @@ export default function Gameboard({ onSelectSquare, turns }) {
 
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((playerSymbol, colIndex) => (
