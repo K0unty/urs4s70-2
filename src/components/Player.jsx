@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-export default function Player({ initialName, symbol }) {
+export default function Player({ initialName, symbol, isActive }) {
   // will manage a True or false boolean value, so intital state - isEditing is set to false
   // Which will then update to True
   const [isEditing, setIsEditing] = useState(false);
@@ -34,7 +34,7 @@ export default function Player({ initialName, symbol }) {
   }
 
   return (
-    <li>
+    <li className={isActive ? "active" : undefined}>
       <span className="player">
         {edittablePlayerName}
         <span className="player-symbol">{symbol}</span>

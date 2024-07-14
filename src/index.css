@@ -80,6 +80,7 @@ h1 {
 
 #players.highlight-player li.active {
   border-color: #f6e35a;
+  border-width: 3px;
   animation: pulse 2s infinite ease-in-out;
 }
 

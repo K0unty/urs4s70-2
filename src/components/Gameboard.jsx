@@ -17,7 +17,7 @@ const initialGameBoard = [
 ];
 
 // Complicated componed from Section 80
-export default function Gameboard() {
+export default function Gameboard({ onSelectSquare, activePlayerSymbol }) {
   // Gameboard sttae
   const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
@@ -26,9 +26,11 @@ export default function Gameboard() {
       const updatedBoard = [
         ...prevGameBoard.map((innerArray) => [...innerArray]),
       ];
-      updatedBoard[rowIndex][colIndex] = "X";
+      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
       return updatedBoard;
     });
+
+    onSelectSquare();
   }
 
   return (
