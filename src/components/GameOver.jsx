@@ -1,12 +1,13 @@
 //92 : Game Over Screen and Checking for a draw
 
-export default function GameOver({ winner }) {
+export default function GameOver({ winner, onRestart }) {
   return (
     <div id="game-over">
       <h2> GAMEOVER !!! </h2>
-      <p>{winner} won!</p>
+      {winner && <p>{winner} won!</p>}
+      {!winner && <p>SCREWED!</p>}
       <p>
-        <button>Rematch!</button>
+        <button onClick={onRestart}>Rematch!</button>
       </p>
     </div>
   );
