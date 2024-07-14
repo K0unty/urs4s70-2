@@ -3,7 +3,12 @@
 
 import { useState } from "react";
 
-export default function Player({ initialName, symbol, isActive }) {
+export default function Player({
+  initialName,
+  symbol,
+  isActive,
+  onChangeName,
+}) {
   // will manage a True or false boolean value, so intital state - isEditing is set to false
   // Which will then update to True
   const [isEditing, setIsEditing] = useState(false);
@@ -15,6 +20,10 @@ export default function Player({ initialName, symbol, isActive }) {
   function handleEditClick() {
     // Best Practice , updating a state based on previous state value
     setIsEditing((editing) => !editing);
+
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   }
 
   // Function to update state when name is typed which is an event
